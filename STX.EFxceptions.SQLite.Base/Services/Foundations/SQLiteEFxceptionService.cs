@@ -8,7 +8,7 @@ using STX.EFxceptions.Interfaces.Brokers.DbErrorBroker;
 
 namespace STX.EFxceptions.SQLite.Base.Services.Foundations
 {
-    public class SQLiteEFxceptionService : ISQLiteEFxceptionService
+    public partial class SQLiteEFxceptionService : ISQLiteEFxceptionService
     {
         private readonly IDbErrorBroker<SqliteException> sqliteErrorBroker;
 
@@ -17,7 +17,7 @@ namespace STX.EFxceptions.SQLite.Base.Services.Foundations
 
         public void ThrowMeaningfulException(DbUpdateException dbUpdateException)
         {
-            throw new System.NotImplementedException();
+            ValidateInnerException(dbUpdateException);
         }
     }
 }
