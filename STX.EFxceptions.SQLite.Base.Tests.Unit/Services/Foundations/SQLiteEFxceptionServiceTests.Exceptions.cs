@@ -94,5 +94,26 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
             Assert.Throws<ForeignKeyConstraintConflictSqliteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
+        
+        [Fact]
+        public void ShouldThrowDuplicateKeyWithUniqueIndexSqliteException()
+        {
+            // given
+            int sqlDuplicateKeyWithUniqueIndexErrorCode = 2601;
+            string randomErrorMessage = CreateRandomErrorMessage();
+            SqliteException sqlDuplicateKeyWithUniqueIndexException = CreateSQLiteException();
+
+            var dbUpdateException = new DbUpdateException(
+                message: randomErrorMessage,
+                innerException: sqlDuplicateKeyWithUniqueIndexException);
+
+            this.sqliteErrorBrokerMock.Setup(broker =>
+                broker.GetErrorCode(sqlDuplicateKeyWithUniqueIndexException))
+                    .Returns(sqlDuplicateKeyWithUniqueIndexErrorCode);
+
+            // when . then
+            Assert.Throws<DuplicateKeyWithUniqueIndexSqliteException>(() =>
+                this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
+        }
     }
 }
