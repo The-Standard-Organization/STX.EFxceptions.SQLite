@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class InvalidObjectNameSqliteException : Exception
+    public class InvalidObjectNameSQLiteException : Exception
     {
-        public InvalidObjectNameSqliteException(string message) : base(message) { }
+        public InvalidObjectNameSQLiteException(string message) : base(message) { }
     }
 }

@@ -6,8 +6,8 @@ using System;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class InvalidColumnNameException : Exception
+    public class InvalidColumnNameSQLiteException : Exception
     {
-        public InvalidColumnNameException(string message) : base(message) { }
+        public InvalidColumnNameSQLiteException(string message) : base(message) { }
     }
 }

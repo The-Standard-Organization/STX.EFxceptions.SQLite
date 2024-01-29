@@ -6,8 +6,8 @@ using System;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class DuplicateKeySqliteException : Exception
+    public class DuplicateKeySQLiteException : Exception
     {
-        public DuplicateKeySqliteException(string message) : base(message) { }
+        public DuplicateKeySQLiteException(string message) : base(message) { }
     }
 }

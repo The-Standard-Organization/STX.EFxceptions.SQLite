@@ -31,7 +31,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
             Assert.Throws<DbUpdateException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
-        
+
         [Fact]
         public void ShouldThrowInvalidColumnNameException()
         {
@@ -49,10 +49,10 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlInvalidColumnNameErrorCode);
 
             // when . then
-            Assert.Throws<InvalidColumnNameException>(() =>
+            Assert.Throws<InvalidColumnNameSQLiteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
-        
+
         [Fact]
         public void ShouldThrowInvalidObjectNameSqliteException()
         {
@@ -70,10 +70,10 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlInvalidObjectNameErrorCode);
 
             // when . then
-            Assert.Throws<InvalidObjectNameSqliteException>(() =>
+            Assert.Throws<InvalidObjectNameSQLiteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
-        
+
         [Fact]
         public void ShouldThrowForeignKeyConstraintConflictSqliteException()
         {
@@ -91,10 +91,10 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlForeignKeyConstraintConflictErrorCode);
 
             // when . then
-            Assert.Throws<ForeignKeyConstraintConflictSqliteException>(() =>
+            Assert.Throws<ForeignKeyConstraintConflictSQLiteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
-        
+
         [Fact]
         public void ShouldThrowDuplicateKeyWithUniqueIndexSqliteException()
         {
@@ -112,10 +112,10 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlDuplicateKeyWithUniqueIndexErrorCode);
 
             // when . then
-            Assert.Throws<DuplicateKeyWithUniqueIndexSqliteException>(() =>
+            Assert.Throws<DuplicateKeyWithUniqueIndexSQLiteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
-        
+
         [Fact]
         public void ShouldThrowDuplicateKeySqliteException()
         {
@@ -133,7 +133,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlDuplicateKeyErrorCode);
 
             // when . then
-            Assert.Throws<DuplicateKeySqliteException>(() =>
+            Assert.Throws<DuplicateKeySQLiteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
     }
