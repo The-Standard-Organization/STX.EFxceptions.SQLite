@@ -52,5 +52,26 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
             Assert.Throws<InvalidColumnNameException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
+        
+        [Fact]
+        public void ShouldThrowInvalidObjectNameSqliteException()
+        {
+            // given
+            int sqlInvalidObjectNameErrorCode = 208;
+            string randomErrorMessage = CreateRandomErrorMessage();
+            SqliteException invalidObjectNameException = CreateSQLiteException();
+
+            var dbUpdateException = new DbUpdateException(
+                message: randomErrorMessage,
+                innerException: invalidObjectNameException);
+
+            this.sqliteErrorBrokerMock.Setup(broker =>
+                broker.GetErrorCode(invalidObjectNameException))
+                    .Returns(sqlInvalidObjectNameErrorCode);
+
+            // when . then
+            Assert.Throws<InvalidObjectNameSqliteException>(() =>
+                this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
+        }
     }
 }
