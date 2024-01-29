@@ -73,5 +73,26 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
             Assert.Throws<InvalidObjectNameSqliteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
+        
+        [Fact]
+        public void ShouldThrowForeignKeyConstraintConflictSqliteException()
+        {
+            // given
+            int sqlForeignKeyConstraintConflictErrorCode = 547;
+            string randomErrorMessage = CreateRandomErrorMessage();
+            SqliteException foreignKeyConstraintConflictException = CreateSQLiteException();
+
+            var dbUpdateException = new DbUpdateException(
+                message: randomErrorMessage,
+                innerException: foreignKeyConstraintConflictException);
+
+            this.sqliteErrorBrokerMock.Setup(broker =>
+                broker.GetErrorCode(foreignKeyConstraintConflictException))
+                    .Returns(sqlForeignKeyConstraintConflictErrorCode);
+
+            // when . then
+            Assert.Throws<ForeignKeyConstraintConflictSqliteException>(() =>
+                this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
+        }
     }
 }
