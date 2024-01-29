@@ -4,6 +4,7 @@
 
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using STX.EFxceptions.SQLite.Base.Models.Exceptions;
 using Xunit;
 
 namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
@@ -28,6 +29,27 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
 
             // when . then
             Assert.Throws<DbUpdateException>(() =>
+                this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
+        }
+        
+        [Fact]
+        public void ShouldThrowInvalidColumnNameException()
+        {
+            // given
+            int sqlInvalidColumnNameErrorCode = 207;
+            string randomErrorMessage = CreateRandomErrorMessage();
+            SqliteException invalidColumnNameException = CreateSQLiteException();
+
+            var dbUpdateException = new DbUpdateException(
+                message: randomErrorMessage,
+                innerException: invalidColumnNameException);
+
+            this.sqliteErrorBrokerMock.Setup(broker =>
+                broker.GetErrorCode(invalidColumnNameException))
+                    .Returns(sqlInvalidColumnNameErrorCode);
+
+            // when . then
+            Assert.Throws<InvalidColumnNameException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
     }
