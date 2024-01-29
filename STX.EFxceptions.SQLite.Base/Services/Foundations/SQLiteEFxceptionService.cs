@@ -18,6 +18,7 @@ namespace STX.EFxceptions.SQLite.Base.Services.Foundations
         public void ThrowMeaningfulException(DbUpdateException dbUpdateException)
         {
             ValidateInnerException(dbUpdateException);
+            throw dbUpdateException;
         }
     }
 }
