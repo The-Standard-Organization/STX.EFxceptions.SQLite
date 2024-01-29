@@ -12,6 +12,8 @@ namespace STX.EFxceptions.SQLite.Base.Services.Foundations
                     throw new InvalidColumnNameException(message);
                 case 208:
                     throw new InvalidObjectNameSqliteException(message);
+                case 547:
+                    throw new ForeignKeyConstraintConflictSqliteException(message);
             }
         }
     }
