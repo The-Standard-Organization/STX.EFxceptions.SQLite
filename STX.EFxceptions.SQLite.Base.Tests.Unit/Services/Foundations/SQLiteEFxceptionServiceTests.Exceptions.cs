@@ -115,5 +115,26 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
             Assert.Throws<DuplicateKeyWithUniqueIndexSqliteException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
+        
+        [Fact]
+        public void ShouldThrowDuplicateKeySqliteException()
+        {
+            // given
+            int sqlDuplicateKeyErrorCode = 2627;
+            string randomErrorMessage = CreateRandomErrorMessage();
+            SqliteException sqlDuplicateKeyException = CreateSQLiteException();
+
+            var dbUpdateException = new DbUpdateException(
+                message: randomErrorMessage,
+                innerException: sqlDuplicateKeyException);
+
+            this.sqliteErrorBrokerMock.Setup(broker =>
+                broker.GetErrorCode(sqlDuplicateKeyException))
+                    .Returns(sqlDuplicateKeyErrorCode);
+
+            // when . then
+            Assert.Throws<DuplicateKeySqliteException>(() =>
+                this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
+        }
     }
 }
