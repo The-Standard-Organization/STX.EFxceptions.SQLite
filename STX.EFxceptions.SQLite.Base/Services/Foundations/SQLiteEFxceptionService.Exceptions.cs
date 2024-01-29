@@ -16,6 +16,8 @@ namespace STX.EFxceptions.SQLite.Base.Services.Foundations
                     throw new ForeignKeyConstraintConflictSqliteException(message);
                 case 2601:
                     throw new DuplicateKeyWithUniqueIndexSqliteException(message);
+                case 2627:
+                    throw new DuplicateKeySqliteException(message);
             }
         }
     }
