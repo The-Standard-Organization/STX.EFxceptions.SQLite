@@ -21,7 +21,7 @@ namespace STX.EFxceptions.Identity.SQLite
         where TRole : IdentityRole<TKey>
         where TKey : IEquatable<TKey>
     {
-        protected EFxceptionsIdentityContext()
+        protected EFxceptionsIdentityContext() : base()
         { }
 
         public EFxceptionsIdentityContext(DbContextOptions options) : base(options)
@@ -50,6 +50,12 @@ namespace STX.EFxceptions.Identity.SQLite
         where TRoleClaim : IdentityRoleClaim<TKey>
         where TUserToken : IdentityUserToken<TKey>
     {
+        protected EFxceptionsIdentityContext() : base()
+        { }
+
+        public EFxceptionsIdentityContext(DbContextOptions options) : base(options)
+        { }
+
         protected override IDbErrorBroker<SqliteException> CreateErrorBroker() =>
             new SQLiteErrorBroker();
 
