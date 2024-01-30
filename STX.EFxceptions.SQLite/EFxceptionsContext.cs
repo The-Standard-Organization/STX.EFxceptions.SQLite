@@ -14,7 +14,9 @@ namespace STX.EFxceptions.SQLite
 {
     public class EFxceptionsContext : DbContextBase<SqliteException>
     {
-
+        public EFxceptionsContext()
+            : base() { }
+            
         public EFxceptionsContext(DbContextOptions<EFxceptionsContext> options)
             : base(options) { }
 
