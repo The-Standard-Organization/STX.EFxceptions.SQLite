@@ -44,4 +44,14 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="STX.EFxceptions.Identity.Core" Version="0.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\STX.EFxceptions.SQLite.Base\STX.EFxceptions.SQLite.Base.csproj" />
+	</ItemGroup>
+
 </Project>
