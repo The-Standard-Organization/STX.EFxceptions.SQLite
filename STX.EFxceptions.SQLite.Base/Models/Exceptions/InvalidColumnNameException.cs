@@ -6,8 +6,8 @@ using System;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class DuplicateKeyWithUniqueIndexSQLiteException : Exception
+    public class InvalidColumnNameException : Exception
     {
-        public DuplicateKeyWithUniqueIndexSQLiteException(string message) : base(message) { }
+        public InvalidColumnNameException(string message) : base(message) { }
     }
 }

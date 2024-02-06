@@ -39,7 +39,7 @@ namespace STX.EFxceptions.SQLite.Tests.Acceptance
             };
 
             // when . then
-            Assert.Throws<DuplicateKeySQLiteException>(() =>
+            Assert.Throws<DuplicateKeyException>(() =>
             {
                 try
                 {
@@ -52,7 +52,7 @@ namespace STX.EFxceptions.SQLite.Tests.Acceptance
                 catch (ArgumentException argumentException)
                 {
 
-                    throw new DuplicateKeySQLiteException(argumentException.Message);
+                    throw new DuplicateKeyException(argumentException.Message);
                 }
                 finally
                 {

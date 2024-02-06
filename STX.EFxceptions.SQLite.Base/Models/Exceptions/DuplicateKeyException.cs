@@ -3,15 +3,11 @@
 // ----------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class InvalidObjectNameSQLiteException : Exception
+    public class DuplicateKeyException : Exception
     {
-        public InvalidObjectNameSQLiteException(string message) : base(message) { }
+        public DuplicateKeyException(string message) : base(message) { }
     }
 }

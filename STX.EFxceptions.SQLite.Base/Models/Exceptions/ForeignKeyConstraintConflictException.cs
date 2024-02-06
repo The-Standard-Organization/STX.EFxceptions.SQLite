@@ -6,8 +6,8 @@ using System;
 
 namespace STX.EFxceptions.SQLite.Base.Models.Exceptions
 {
-    public class ForeignKeyConstraintConflictSQLiteException : Exception
+    public class ForeignKeyConstraintConflictException : Exception
     {
-        public ForeignKeyConstraintConflictSQLiteException(string message) : base(message) { }
+        public ForeignKeyConstraintConflictException(string message) : base(message) { }
     }
 }

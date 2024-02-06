@@ -49,7 +49,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlInvalidColumnNameErrorCode);
 
             // when . then
-            Assert.Throws<InvalidColumnNameSQLiteException>(() =>
+            Assert.Throws<InvalidColumnNameException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
 
@@ -70,7 +70,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlInvalidObjectNameErrorCode);
 
             // when . then
-            Assert.Throws<InvalidObjectNameSQLiteException>(() =>
+            Assert.Throws<InvalidObjectNameException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
 
@@ -91,7 +91,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlForeignKeyConstraintConflictErrorCode);
 
             // when . then
-            Assert.Throws<ForeignKeyConstraintConflictSQLiteException>(() =>
+            Assert.Throws<ForeignKeyConstraintConflictException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
 
@@ -112,7 +112,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlDuplicateKeyWithUniqueIndexErrorCode);
 
             // when . then
-            Assert.Throws<DuplicateKeyWithUniqueIndexSQLiteException>(() =>
+            Assert.Throws<DuplicateKeyWithUniqueIndexException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
 
@@ -133,7 +133,7 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .Returns(sqlDuplicateKeyErrorCode);
 
             // when . then
-            Assert.Throws<DuplicateKeySQLiteException>(() =>
+            Assert.Throws<DuplicateKeyException>(() =>
                 this.sqliteEFxceptionService.ThrowMeaningfulException(dbUpdateException));
         }
     }

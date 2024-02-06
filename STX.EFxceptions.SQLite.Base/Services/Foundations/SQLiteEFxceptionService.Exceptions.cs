@@ -9,15 +9,15 @@ namespace STX.EFxceptions.SQLite.Base.Services.Foundations
             switch (sqliteErrorCode)
             {
                 case 207:
-                    throw new InvalidColumnNameSQLiteException(message);
+                    throw new InvalidColumnNameException(message);
                 case 208:
-                    throw new InvalidObjectNameSQLiteException(message);
+                    throw new InvalidObjectNameException(message);
                 case 547:
-                    throw new ForeignKeyConstraintConflictSQLiteException(message);
+                    throw new ForeignKeyConstraintConflictException(message);
                 case 2601:
-                    throw new DuplicateKeyWithUniqueIndexSQLiteException(message);
+                    throw new DuplicateKeyWithUniqueIndexException(message);
                 case 2627:
-                    throw new DuplicateKeySQLiteException(message);
+                    throw new DuplicateKeyException(message);
             }
         }
     }
