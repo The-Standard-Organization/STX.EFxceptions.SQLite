@@ -82,6 +82,22 @@ namespace STX.EFxceptions.SQLite.Infrastructure.Build
                                 }
                             }
                         }
+                    },
+                    {
+                        "add_tag",
+                        new TagJob(
+                            runsOn: BuildMachines.UbuntuLatest,
+                            dependsOn: "build",
+                            projectRelativePath: "STX.EFxceptions.SQLite/STX.EFxceptions.SQLite.csproj",
+                            githubToken: "${{ secrets.PAT_FOR_TAGGING }}",
+                            branchName: branchName)
+                    },
+                    {
+                        "publish",
+                        new PublishJob(
+                            runsOn: BuildMachines.UbuntuLatest,
+                            dependsOn: "add_tag",
+                            nugetApiKey: "${{ secrets.NUGET_ACCESS }}")
                     }
                 }
             };
