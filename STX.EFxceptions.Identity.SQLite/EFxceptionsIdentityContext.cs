@@ -14,7 +14,7 @@ using STX.EFxceptions.SQLite.Base.Services.Foundations;
 
 namespace STX.EFxceptions.Identity.SQLite
 {
-    public class EFxceptionsIdentityContext<TUser, TRole, TKey>
+    public abstract class EFxceptionsIdentityContext<TUser, TRole, TKey>
          : IdentityDbContextBase<TUser, TRole, TKey, IdentityUserClaim<TKey>, IdentityUserRole<TKey>,
              IdentityUserLogin<TKey>, IdentityRoleClaim<TKey>, IdentityUserToken<TKey>, SqliteException>
         where TUser : IdentityUser<TKey>
@@ -37,7 +37,7 @@ namespace STX.EFxceptions.Identity.SQLite
         }
     }
 
-    public class EFxceptionsIdentityContext<
+    public abstract class EFxceptionsIdentityContext<
         TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken>
         : IdentityDbContextBase<TUser, TRole, TKey,
             TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken, SqliteException>
