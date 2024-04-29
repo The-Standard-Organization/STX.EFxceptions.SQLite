@@ -3,7 +3,7 @@
 // ----------------------------------------------------------------------------------
 
 using Microsoft.Data.Sqlite;
-using STX.EFxceptions.Interfaces.Brokers.DbErrorBroker;
+using STX.EFxceptions.Abstractions.Brokers.DbErrorBroker;
 
 namespace STX.EFxceptions.SQLite.Base.Brokers.DbErrorBroker
 {
