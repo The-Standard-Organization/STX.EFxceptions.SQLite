@@ -4,11 +4,11 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using Tynamix.ObjectFiller;
 using Microsoft.Data.Sqlite;
 using Moq;
 using STX.EFxceptions.SQLite.Base.Brokers.DbErrorBroker;
 using STX.EFxceptions.SQLite.Base.Services.Foundations;
-using Tynamix.ObjectFiller;
 
 namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
 {
