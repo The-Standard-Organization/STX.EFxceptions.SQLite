@@ -42,7 +42,17 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
                     .ThrowMeaningfulException(dbUpdateException));
 
             // then
-            actualDbUpdateException.Should().BeEquivalentTo(expectedDbUpdateException);
+            actualDbUpdateException.Should()
+                .BeEquivalentTo(
+                expectation: expectedDbUpdateException,
+                config: options => options
+                    .Excluding(ex => ex.TargetSite)
+                    .Excluding(ex => ex.StackTrace)
+                    .Excluding(ex => ex.Source)
+                    .Excluding(ex => ex.InnerException.TargetSite)
+                    .Excluding(ex => ex.InnerException.StackTrace)
+                    .Excluding(ex => ex.InnerException.Source));
+
 
             this.sqliteErrorBrokerMock.Verify(broker => broker
                 .GetErrorCode(foreignKeyConstraintConflictExceptionThrown), Times.Once());
