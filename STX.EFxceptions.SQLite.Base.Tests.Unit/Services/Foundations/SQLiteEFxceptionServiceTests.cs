@@ -2,6 +2,7 @@
 // Copyright(c) The Standard Organization: A coalition of the Good-Hearted Engineers
 // ----------------------------------------------------------------------------------
 
+using System.Reflection;
 using System.Runtime.Serialization;
 using Microsoft.Data.Sqlite;
 using Moq;
@@ -26,7 +27,26 @@ namespace STX.EFxceptions.SQLite.Base.Tests.Unit.Services.Foundations
 
         private string CreateRandomErrorMessage() => new MnemonicString().GetValue();
 
-        private SqliteException CreateSQLiteException() =>
-            FormatterServices.GetSafeUninitializedObject(typeof(SqliteException)) as SqliteException;
+        private SqliteException CreateSQLiteException(string message, int errorCode)
+        {
+            SqliteException sqliteException =
+                (SqliteException)FormatterServices.GetUninitializedObject(typeof(SqliteException));
+
+            FieldInfo messageField = typeof(SqliteException).GetField(
+                name: "_message",
+                bindingAttr: BindingFlags.Instance | BindingFlags.NonPublic);
+
+            if (messageField != null)
+                messageField.SetValue(sqliteException, message);
+
+            FieldInfo errorCodeField = typeof(SqliteException).GetField(
+                name: "_errorCode",
+                bindingAttr: BindingFlags.Instance | BindingFlags.NonPublic);
+
+            if (errorCodeField != null)
+                errorCodeField.SetValue(sqliteException, errorCode);
+
+            return sqliteException;
+        }
     }
 }
