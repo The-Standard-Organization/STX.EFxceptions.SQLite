@@ -46,7 +46,9 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
-	  <PackageReference Include="STX.EFxceptions.Interfaces" Version="0.1.2" />
+	  <PackageReference Include="STX.EFxceptions.Abstractions" Version="0.1.6" />
+	  <PackageReference Include="STX.EFxceptions.Core" Version="0.1.6" />
+	  <PackageReference Include="STX.EFxceptions.Identity.Core" Version="0.1.6" />
 	</ItemGroup>
 
 </Project>

@@ -5,8 +5,8 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using STX.EFxceptions.Core;
-using STX.EFxceptions.Interfaces.Brokers.DbErrorBroker;
-using STX.EFxceptions.Interfaces.Services.EFxceptions;
+using STX.EFxceptions.Abstractions.Brokers.DbErrorBroker;
+using STX.EFxceptions.Abstractions.Services.EFxceptions;
 using STX.EFxceptions.SQLite.Base.Brokers.DbErrorBroker;
 using STX.EFxceptions.SQLite.Base.Services.Foundations;
 

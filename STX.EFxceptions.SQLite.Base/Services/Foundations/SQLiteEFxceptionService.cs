@@ -5,7 +5,7 @@
 using System;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using STX.EFxceptions.Interfaces.Brokers.DbErrorBroker;
+using STX.EFxceptions.Abstractions.Brokers.DbErrorBroker;
 
 namespace STX.EFxceptions.SQLite.Base.Services.Foundations
 {
