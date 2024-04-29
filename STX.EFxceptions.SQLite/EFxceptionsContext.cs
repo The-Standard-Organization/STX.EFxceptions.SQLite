@@ -12,7 +12,7 @@ using STX.EFxceptions.SQLite.Base.Services.Foundations;
 
 namespace STX.EFxceptions.SQLite
 {
-    public class EFxceptionsContext : DbContextBase<SqliteException>
+    public abstract class EFxceptionsContext : DbContextBase<SqliteException>
     {
         protected EFxceptionsContext()
             : base() { }
